@@ -1,4 +1,3 @@
-import json
 
 from orders.models.order import Order
 
