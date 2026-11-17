@@ -25,5 +25,3 @@ def shipping_fee(order: Order) -> int:
 
 def total(order: Order) -> int:
     return subtotal(order) - discount(order) + shipping_fee(order)
-
-MAIN_NOTE = f"main에서 추가"
