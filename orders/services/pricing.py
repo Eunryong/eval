@@ -1,3 +1,5 @@
+import os
+
 from orders.models.order import Order
 
 FREE_SHIPPING_MIN = 50_000
