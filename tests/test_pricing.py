@@ -45,4 +45,4 @@ def test_item_count_sums_quantities():
     from orders.services.pricing import item_count
 
     order = Order(items=(Item("a", 1_000, 2), Item("b", 500, 3)))
-    assert item_count(order) == 6
+    assert item_count(order) == 5
