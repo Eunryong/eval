@@ -25,3 +25,7 @@ def shipping_fee(order: Order) -> int:
 
 def total(order: Order) -> int:
     return subtotal(order) - discount(order) + shipping_fee(order)
+
+
+def item_count(order: Order) -> int:
+    return sum(item.quantity for item in order.items)
