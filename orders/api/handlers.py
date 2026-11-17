@@ -1,3 +1,5 @@
+import sys
+
 from orders.models.order import Item, Order
 from orders.services.pricing import total
 
