@@ -18,7 +18,7 @@ def discount(order: Order) -> int:
 def shipping_fee(order: Order) -> int:
     if not order.items:
         return 0
-    if subtotal(order) - discount(order) >= 50_000:
+    if subtotal(order) - discount(order) >= FREE_SHIPPING_MIN:
         return 0
     return SHIPPING_FEE
 
