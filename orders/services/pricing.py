@@ -10,7 +10,7 @@ def subtotal(order: Order) -> int:
 
 
 def discount(order: Order) -> int:
-    if order.coupon_percent < 0 or order.coupon_percent > MAX_COUPON_PERCENT:
+    if order.coupon_percent < 0 or order.coupon_percent > 50:
         raise ValueError("coupon_percent out of range")
     return subtotal(order) * order.coupon_percent // 100
 
