@@ -1,7 +1,7 @@
 import pytest
 
 from orders.models.order import Item, Order
-from orders.services.pricing import discount, shipping_fee, subtotal, total
+from orders.services.pricing import bulk_discount, discount, shipping_fee, subtotal, total
 
 
 def order(*prices: int, coupon: int = 0) -> Order:
@@ -38,3 +38,12 @@ def test_shipping_fee_boundary():
 
 def test_total():
     assert total(order(10_000, coupon=10)) == 12_000
+
+
+def test_bulk_discount_starts_at_ten_items():
+    assert bulk_discount(Order(items=(Item("a", 1000, 9),))) == 0
+    assert bulk_discount(Order(items=(Item("a", 1000, 10),))) == 500
+
+
+def test_total_takes_off_the_bulk_discount():
+    assert total(Order(items=(Item("a", 10_000, 10),))) == 95_000

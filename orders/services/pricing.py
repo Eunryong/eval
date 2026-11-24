@@ -15,6 +15,14 @@ def discount(order: Order) -> int:
     return subtotal(order) * order.coupon_percent // 100
 
 
+def bulk_discount(order: Order) -> int:
+    count = sum(item.quantity for item in order.items)
+    print("bulk_discount count", count)
+    if count >= 10:
+        return subtotal(order) * 5 // 100
+    return 0
+
+
 def shipping_fee(order: Order) -> int:
     if not order.items:
         return 0
@@ -24,4 +32,4 @@ def shipping_fee(order: Order) -> int:
 
 
 def total(order: Order) -> int:
-    return subtotal(order) - discount(order) + shipping_fee(order)
+    return subtotal(order) - discount(order) - bulk_discount(order) + shipping_fee(order)
