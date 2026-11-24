@@ -3,6 +3,7 @@ from orders.models.order import Order
 FREE_SHIPPING_MIN = 50_000
 SHIPPING_FEE = 3_000
 MAX_COUPON_PERCENT = 50
+BULK_DISCOUNT_MIN_COUNT = 10
 
 
 def subtotal(order: Order) -> int:
@@ -17,8 +18,7 @@ def discount(order: Order) -> int:
 
 def bulk_discount(order: Order) -> int:
     count = sum(item.quantity for item in order.items)
-    print("bulk_discount count", count)
-    if count >= 10:
+    if count >= BULK_DISCOUNT_MIN_COUNT:
         return subtotal(order) * 5 // 100
     return 0
 
