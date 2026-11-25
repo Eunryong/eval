@@ -7,6 +7,7 @@ from orders.services.pricing import subtotal
 logger = logging.getLogger(__name__)
 
 POINT_PERCENT = 1
+BONUS_THRESHOLD = 100_000
 
 
 @dataclass
@@ -19,7 +20,7 @@ def earn_points(order: Order) -> PointResult:
     amount = subtotal(order)
     if amount <= 0:
         return PointResult(earned=0, bonus=False)
-    print("earn_points amount", amount)
-    bonus = amount >= 100_000
+    logger.debug("earn_points amount %s", amount)
+    bonus = amount >= BONUS_THRESHOLD
     rate = POINT_PERCENT * 2 if bonus else POINT_PERCENT
-    return PointResult(earned=int(amount * rate / 100), bonus=bonus)
+    return PointResult(earned=int(amount * rate // 100), bonus=bonus)
