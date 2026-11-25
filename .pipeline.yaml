@@ -1,0 +1,7 @@
+model:
+  rules: haiku
+  checker: haiku
+  judge: haiku
+  decide: haiku
+  light: haiku
+  heavy: haiku
