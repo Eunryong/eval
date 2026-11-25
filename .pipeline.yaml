@@ -1,0 +1,7 @@
+model:
+  rules: sonnet
+  checker: sonnet
+  judge: sonnet
+  decide: sonnet
+  light: sonnet
+  heavy: sonnet
