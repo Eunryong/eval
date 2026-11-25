@@ -7,6 +7,10 @@ class Item:
     unit_price: int
     quantity: int
 
+    def __post_init__(self) -> None:
+        if self.quantity < 1:
+            raise ValueError("quantity must be at least 1")
+
 
 @dataclass(frozen=True)
 class Order:
