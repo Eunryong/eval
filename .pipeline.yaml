@@ -1,0 +1,7 @@
+model:
+  rules: opus
+  checker: opus
+  judge: opus
+  decide: opus
+  light: opus
+  heavy: opus
