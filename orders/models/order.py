@@ -14,6 +14,4 @@ class Order:
     coupon_percent: int = 0
 
     def subtotal(self) -> int:
-        from orders.services.pricing import subtotal
-
-        return subtotal(self)
+        return sum(item.unit_price * item.quantity for item in self.items)
