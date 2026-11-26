@@ -1,7 +1,7 @@
 model:
-  rules: sonnet
-  checker: sonnet
-  judge: sonnet
-  decide: sonnet
-  light: sonnet
-  heavy: sonnet
+  rules: claude-sonnet-5-5
+  checker: claude-sonnet-5-5
+  judge: claude-sonnet-5-5
+  decide: claude-sonnet-5-5
+  light: claude-sonnet-5-5
+  heavy: claude-sonnet-5-5
