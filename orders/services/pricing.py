@@ -6,7 +6,7 @@ MAX_COUPON_PERCENT = 50
 
 
 def subtotal(order: Order) -> int:
-    return sum(item.unit_price * item.quantity for item in order.items)
+    return order.subtotal()
 
 
 def discount(order: Order) -> int:
