@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from orders.models.order import Item, Order
 
 
-@dataclass
+@dataclass(frozen=True)
 class Cart:
     items: tuple[Item, ...] = ()
     coupon_percent: int = 0
