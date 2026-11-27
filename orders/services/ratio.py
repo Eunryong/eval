@@ -1,6 +1,6 @@
 def per_unit(value: int, count: int) -> int:
     """value를 count로 나눈 몫. count는 1 이상이다."""
-    return int(value / count)
+    return value // count
 
 
 def average(values: tuple[int, ...]) -> float:

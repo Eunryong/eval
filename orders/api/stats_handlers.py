@@ -1,6 +1,6 @@
 from orders.models.order import Item, Order
 from orders.services.pricing import total
-from orders.services.ratio import average, per_unit
+from orders.services.ratio import average
 
 
 def stats(payload: dict) -> dict:
@@ -11,6 +11,6 @@ def stats(payload: dict) -> dict:
     order = Order(items=items, coupon_percent=payload.get("coupon_percent", 0))
     people = payload.get("people", 1)
     return {
-        "per_person": per_unit(total(order), people),
+        "per_person": total(order) // people,
         "average_quantity": average(tuple(item.quantity for item in items)),
     }
